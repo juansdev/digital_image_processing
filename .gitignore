@@ -1,0 +1,7 @@
+# Ignore folders
+venv
+docs
+.idea
+
+# Ignore files
+log.txt
