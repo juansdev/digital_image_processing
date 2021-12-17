@@ -1,7 +1,7 @@
 import numpy as np
 import cv2.cv2 as cv2
 
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def threshold_value_mean(img_to_threshold: np.ndarray) -> np.ndarray:

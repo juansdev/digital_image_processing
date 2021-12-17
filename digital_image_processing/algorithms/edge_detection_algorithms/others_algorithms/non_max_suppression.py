@@ -1,12 +1,27 @@
 import numpy as np
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
-def non_max_suppression(img, d):
+def non_max_suppression(img: np.ndarray, theta: float):
+    """Runs the Non Max Suppression algorithm
+
+    Reference:
+    Neubeck, Alexander & Van Gool, Luc. (2006). Efficient Non-Maximum Suppression. Proceedings of
+    International Conference on Pattern Recognition. 3. 850-855. 10.1109/ICPR.2006.479.
+
+    :param img: The input image. Must be a gray scale image
+    :type img: ndarray
+    :param theta: Theta
+    :type theta: float
+
+    :return: Image with non max suppression applied
+    :rtype: ndarray
+    """
+
     log_message.info('Applying non max suppression.')
     M, N = img.shape
     Z = np.zeros((M, N), dtype=np.int32)
-    angle = d * 180. / np.pi
+    angle = theta * 180. / np.pi
     angle[angle < 0] += 180
     for i in range(1, M - 1):
         for j in range(1, N - 1):

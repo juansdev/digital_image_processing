@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.niblack import niblack_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def niblack_thresholding_method(img_to_niblack: np.ndarray) -> np.ndarray:

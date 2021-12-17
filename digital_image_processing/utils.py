@@ -1,6 +1,6 @@
-from tools.logger_base import log as log_message
+from .tools.logger_base import log as log_message
 from timeit import default_timer
-from algorithms.edge_detection_algorithms.threshold.adaptive_thresholding_methods import (
+from .algorithms.edge_detection_algorithms.threshold.adaptive_thresholding_methods import (
     threshold_value_mean,
     threshold_value_gaussian,
     otsu_thresholding_method,
@@ -20,7 +20,7 @@ from algorithms.edge_detection_algorithms.threshold.adaptive_thresholding_method
     singh_thresholding_method,
     feng_thresholding_method
 )
-from algorithms.edge_detection_algorithms.algorithms import (
+from .algorithms.edge_detection_algorithms.algorithms import (
     backward_difference,
     forward_difference,
     central_difference,
@@ -35,7 +35,7 @@ from algorithms.edge_detection_algorithms.algorithms import (
     kirsch_operator,
     robinson_operator
 )
-from algorithms.main import ApplyAlgorithms
+from .algorithms.main import ApplyAlgorithms
 
 
 __copyright__ = 'Copyright 2021'

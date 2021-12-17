@@ -1,12 +1,30 @@
 import math
 import numpy as np
 import cv2.cv2 as cv2
+
 from skimage import util
 from scipy import ndimage
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def robinson_operator(img_to_robinson: np.ndarray) -> dict:
+    """Runs the Robinson Operator algorithm
+
+    Reference:
+    Comparison of Edge Detection Algorithms for Automated Radiographic Measurement of the Carrying Angle.
+    Journal of Biomedical Engineering and Medical Imaging, 2(6). https://doi.org/10.14738/jbemi.26.1753. Nasution,
+    T. Y., Zarlis, M., & Nasution, M. K. (2017).
+    Optimizing Robinson Operator with Ant Colony Optimization As a
+    Digital Image Edge Detection Method. Journal of Physics: Conference Series, 930,
+    012034. https://doi.org/10.1088/1742-6596/930/1/012034
+
+    :param img_to_robinson: The input image. Must be a gray scale image
+    :type img_to_robinson: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Robinson Operator==========')
     template_north = np.array([[1, 2, 1],
                                [0, 0, 0],

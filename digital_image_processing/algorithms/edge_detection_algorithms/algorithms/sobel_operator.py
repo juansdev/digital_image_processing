@@ -1,16 +1,31 @@
 import numpy as np
 import cv2.cv2 as cv2
 
-from algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
+from digital_image_processing.algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
     cs_threshold,
 )
-from tools.logger_base import log as log_message
-from algorithms.edge_detection_algorithms.filters import (
+from digital_image_processing.tools.logger_base import log as log_message
+from digital_image_processing.algorithms.edge_detection_algorithms.filters import (
     mask_filter
 )
 
 
 def sobel_operator(img_to_sobel: np.ndarray) -> np.ndarray:
+    """Runs the Sobel Operator algorithm
+
+    Reference:
+    Comparison of Edge Detection Algorithms for Automated Radiographic Measurement of the Carrying Angle.
+    Journal of Biomedical Engineering and Medical Imaging, 2(6). https://doi.org/10.14738/jbemi.26.1753. Nasution,
+    T. Y., Zarlis, M., & Nasution, M. K. (2017).
+    Sobel, Irwin. (2014). An Isotropic 3x3 Image Gradient Operator. Presentation at Stanford A.I. Project 1968.
+
+    :param img_to_sobel: The input image. Must be a gray scale image
+    :type img_to_sobel: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Sobel Operator==========')
     gaussianBlur = cv2.GaussianBlur(img_to_sobel, (3, 3), 0)
     sobel_x = np.array([

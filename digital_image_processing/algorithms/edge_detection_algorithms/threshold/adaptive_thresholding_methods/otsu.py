@@ -1,7 +1,7 @@
 import numpy as np
 import cv2.cv2 as cv2
 
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def otsu_thresholding_method(img_to_otsu: np.ndarray) -> dict:

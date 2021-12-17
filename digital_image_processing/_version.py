@@ -1,4 +1,4 @@
-# Este archivo es importado de __init__.py y ejecutado desde setup.pý
+# Este archivo es ejecutado desde setup.pý
 
 MAJOR = 0
 MINOR = 2

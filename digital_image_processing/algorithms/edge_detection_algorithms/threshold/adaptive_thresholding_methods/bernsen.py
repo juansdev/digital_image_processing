@@ -1,15 +1,14 @@
 import numpy as np
 
 from pythreshold.local_th.bernsen import bernsen_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def bernsen_thresholding_method(img_to_kapur: np.ndarray) -> np.ndarray:
     """Runs the Bernsen thresholding algorithm
 
     Reference:
-    Bernsen, J (1986), "Dynamic Thresholding of Grey-Level Images",
-    Proc. of the 8th Int. Conf. on Pattern Recognition
+    Eyupoglu, Can. (2016). Implementation of Bernsen’s Locally Adaptive Binarization Method for Gray Scale Images.
 
     :param img_to_kapur: The input image. Must be a gray scale image
     :type img_to_kapur: ndarray

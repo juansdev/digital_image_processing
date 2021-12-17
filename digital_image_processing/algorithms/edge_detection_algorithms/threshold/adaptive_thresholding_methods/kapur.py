@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.global_th.entropy.kapur import kapur_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def kapur_thresholding_method(img_to_kapur: np.ndarray) -> np.ndarray:

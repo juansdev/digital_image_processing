@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.sauvola import sauvola_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def sauvola_thresholding_method(img_to_sauvola: np.ndarray) -> np.ndarray:

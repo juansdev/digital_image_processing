@@ -1,8 +1,22 @@
 import numpy as np
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def median_filter(img: np.array, f: np.array) -> np.array:
+    """Runs the Median Filter algorithm
+
+    Reference:
+    Micek, J. & Kapitulík, Ján. (2003). Median filter. Journal of Information, Control and Management Systems. 1.
+
+    :param img: The input image. Must be a gray scale image
+    :type img: ndarray
+    :param f: Kernel
+    :type f: ndarray
+
+    :return: The estimated local filter for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('Applying medium filter.')
     img_h, img_w = img.shape
     ret = np.array(img, dtype='float')

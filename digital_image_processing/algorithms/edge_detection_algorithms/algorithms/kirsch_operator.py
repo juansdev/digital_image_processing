@@ -1,12 +1,26 @@
 import numpy as np
 
-from algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
+from digital_image_processing.algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
     lpk_threshold,
 )
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def kirsch_operator(img_to_kirsch: np.ndarray) -> np.ndarray:
+    """Runs the Kirsch Operator algorithm
+
+    Reference:
+    AlNouri, M., al Saei, J., Younis, M., Bouri, F., al Habash, M. A., Shah, M. H., & al Dosari,
+    M. (2015). Comparison of Edge Detection Algorithms for Automated Radiographic Measurement of the Carrying Angle.
+    Journal of Biomedical Engineering and Medical Imaging, 2(6). https://doi.org/10.14738/jbemi.26.1753
+
+    :param img_to_kirsch: The input image. Must be a gray scale image
+    :type img_to_kirsch: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Kirsch Operator==========')
     m, n = img_to_kirsch.shape
     mask_kirsch = np.zeros((m, n))

@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.singh import singh_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def singh_thresholding_method(img_to_singh: np.ndarray) -> np.ndarray:

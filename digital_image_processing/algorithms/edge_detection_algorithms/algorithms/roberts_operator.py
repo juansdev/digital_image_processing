@@ -1,13 +1,25 @@
 import numpy as np
 import cv2.cv2 as cv2
 
-from algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
+from digital_image_processing.algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
     roberts_threshold
 )
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def roberts_operator(img_to_roberts: np.ndarray) -> np.ndarray:
+    """Runs the Roberts Operator algorithm
+
+    Reference:
+    Jain, R., Kasturi, R., & Schunck, B. G. (1995). Machine Vision (1.a ed.). Mcgraw-Hill College.
+
+    :param img_to_roberts: The input image. Must be a gray scale image
+    :type img_to_roberts: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Roberts Operator==========')
     #  Roberts operator
     kernelx = np.array([[1, 0],

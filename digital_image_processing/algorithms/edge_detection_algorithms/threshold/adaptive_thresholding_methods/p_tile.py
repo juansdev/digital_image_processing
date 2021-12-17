@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.global_th.p_tile import p_tile_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def p_tile_thresholding_method(img_to_p_tile: np.ndarray) -> np.ndarray:

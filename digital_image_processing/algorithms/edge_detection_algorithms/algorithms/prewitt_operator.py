@@ -1,13 +1,27 @@
 import numpy as np
 import cv2.cv2 as cv2
 
-from algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
+from digital_image_processing.algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
     lpk_threshold,
 )
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def prewitt_operator(img_to_prewitt: np.ndarray) -> np.ndarray:
+    """Runs the Prewitt Operator algorithm
+
+    Reference:
+    Comparison of Edge Detection Algorithms for Automated Radiographic
+    Measurement of the Carrying Angle. Journal of Biomedical Engineering and Medical Imaging,
+    2(6). https://doi.org/10.14738/jbemi.26.1753.
+
+    :param img_to_prewitt: The input image. Must be a gray scale image
+    :type img_to_prewitt: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Prewitt Operador==========')
     prewitt_x = np.array([
         [-1, 0, 1],

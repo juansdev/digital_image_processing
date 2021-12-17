@@ -1,12 +1,23 @@
 import numpy as np
 
 from matplotlib import pyplot as plt
-from tools.logger_base import log as log_message
-from tools.tools_img import use_img_with_plt
-from edge_detection_algorithms.filters.median_filter import median_filter
+from digital_image_processing.tools.logger_base import log as log_message
+from digital_image_processing.tools.tools_img import use_img_with_plt
+from digital_image_processing.algorithms.edge_detection_algorithms.filters import median_filter
 
 
 def gltp(img_to_gltp: np.array, use_median_filter: bool = True) -> np.array:
+    """Runs the GLTP algorithm
+
+    :param img_to_gltp: The input image. Must be a gray scale image
+    :type img_to_gltp: ndarray
+    :param use_median_filter: Use median filter?
+    :type use_median_filter: bool
+
+    :return: The estimated local for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('')
 
     # Apply median filter

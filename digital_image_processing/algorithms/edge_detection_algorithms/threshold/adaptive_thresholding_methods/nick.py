@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.nick import nick_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def nick_thresholding_method(img_to_nick: np.ndarray) -> np.ndarray:
