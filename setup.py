@@ -22,6 +22,9 @@ setup(
     name='digital_image_processing',
     version=__version__,
     packages=find_packages(),
+    package_data={
+        "digital_image_processing": ["test_imgs/*.*"]
+    },
     author='Juan Guillermo Serrano Ramirez & Sergio Orjuela',
     author_email='juanfater2017@gmail.com',
     url='https://github.com/juansdev',

@@ -10,6 +10,8 @@
 
 ## Usage
 
+It's recommended to run the Script as administrator and only use relative paths
+
     from digital_image_processing.utils import test_edge_detection_algorithms
 
     # Testing all the included edge detection algorithms using a default input/output directory path with default images
@@ -22,7 +24,7 @@
 
 Or just type in a terminal:
 
-    digital_image_processing -i /path/to/input -o /output/directory -ed
+    digital_image_processing -i input -o output -ed
 
 ## Included Algorithms
 
@@ -45,9 +47,9 @@ Or just type in a terminal:
     M. (2015). Comparison of Edge Detection Algorithms for Automated Radiographic Measurement of the Carrying Angle.
     Journal of Biomedical Engineering and Medical Imaging, 2(6). https://doi.org/10.14738/jbemi.26.1753 (**Kirsch Operator**)
     * Abd El-Fattah El-Sennary, H., Eid Hussien, M., & El-Mgeid Amin Ali, A. (2019). Edge Detection of an
-    Image Based on Extended Difference of Gaussian. American Journal of Computer Science and Technology, 2(3),
-    35. https://doi.org/10.11648/j.ajcst.20190203.11. AlNouri, M., al Saei, J., Younis, M., Bouri, F., al Habash,
-    M. A., Shah, M. H., & al Dosari, M. (2015). (**DoG**)
+    Image Based on Extended Difference of Gaussian. American Journal of Computer Science and Technology, 2(3), 35. 
+    https://doi.org/10.11648/j.ajcst.20190203.11. AlNouri, M., al Saei, J., Younis, M., Bouri, F., al Habash,
+M. A., Shah, M. H., & al Dosari, M. (2015). (**DoG**)
 * Filters used for Edge Detection
     * Gedraite, Estevao & Hadad, M.. (2011). Investigation on the effect of a Gaussian Blur in image
     filtering and segmentation. 393-396.(**Gaussian Filter**)

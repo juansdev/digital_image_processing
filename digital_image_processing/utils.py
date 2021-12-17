@@ -1,3 +1,5 @@
+import os
+
 from .tools.logger_base import log as log_message
 from timeit import default_timer
 from .algorithms.edge_detection_algorithms.threshold.adaptive_thresholding_methods import (
@@ -67,6 +69,7 @@ def test_edge_detection_algorithms(path_input='input_test', path_output='output_
                        kirsch_operator
                        # robinson_operator
                        ]
+    path_output = os.path.join(path_output, 'edge_detection')
     start = default_timer()
     apply_edge_detection_algorithms = ApplyAlgorithms(list_algorithms,
                                                       path_input=path_input,
@@ -107,6 +110,7 @@ def test_adaptive_thresholding_algorithms(path_input='input_test', path_output='
                        contrast_thresholding_method,
                        singh_thresholding_method,
                        feng_thresholding_method]
+    path_output = os.path.join(path_output, 'adaptive_thresholding')
     start = default_timer()
     apply_edge_detection_algorithms = ApplyAlgorithms(list_algorithms,
                                                       path_input=path_input,
