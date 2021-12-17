@@ -1,13 +1,30 @@
 import numpy as np
 
-from tools.logger_base import log as log_message
-from algorithms.edge_detection_algorithms.filters import (
+from digital_image_processing.tools.logger_base import log as log_message
+from digital_image_processing.algorithms.edge_detection_algorithms.filters import (
     mask_filter
 )
 
 
-# Implementation of Difference of Gaussian (DoG)
 def dog(img_to_dog: np.ndarray) -> np.ndarray:
+    """Runs the Difference of Gaussian algorithm
+
+    Reference:
+    Abd El-Fattah El-Sennary, H., Eid Hussien, M., & El-Mgeid Amin Ali, A. (2019). Edge Detection of an
+    Image Based on Extended Difference of Gaussian. American Journal of Computer Science and Technology, 2(3),
+    35. https://doi.org/10.11648/j.ajcst.20190203.11. AlNouri, M., al Saei, J., Younis, M., Bouri, F., al Habash,
+    M. A., Shah, M. H., & al Dosari, M. (2015).
+    Comparison of Edge Detection Algorithms for Automated Radiographic
+    Measurement of the Carrying Angle. Journal of Biomedical Engineering and Medical Imaging,
+    2(6). https://doi.org/10.14738/jbemi.26.1753.
+
+    :param img_to_dog: The input image. Must be a gray scale image
+    :type img_to_dog: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Difference of Gaussian==========')
     m, n = [(ss - 1.) / 2. for ss in (5, 5)]
     y, x = np.ogrid[-m:m + 1, -n:n + 1]

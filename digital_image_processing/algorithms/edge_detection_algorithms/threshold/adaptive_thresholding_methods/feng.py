@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.feng import feng_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def feng_thresholding_method(img_to_feng: np.ndarray) -> np.ndarray:

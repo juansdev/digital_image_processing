@@ -2,15 +2,31 @@ import numpy as np
 import cv2.cv2 as cv2
 
 from scipy import signal
-from tools.logger_base import log as log_message
-from algorithms.edge_detection_algorithms.others_algorithms import (
+from digital_image_processing.tools.logger_base import log as log_message
+from digital_image_processing.algorithms.edge_detection_algorithms.others_algorithms import (
     handle_img_padding,
     zero_cross_detection
 )
 
 
-# Implementation of Laplacian of Gaussian (LoG, Edges Marr Hildreth)
 def log(img_to_log: np.ndarray) -> np.ndarray:
+    """Runs the Laplacian of Gaussian algorithm
+
+    Reference:
+    S. R. Gunn, "Edge detection error in the discrete Laplacian of Gaussian," Proceedings 1998
+    International Conference on Image Processing. ICIP98 (Cat. No.98CB36269), 1998, pp. 515-519 vol.2,
+    doi: 10.1109/ICIP.1998.723491. Huertas, A., & Medioni, G. (1986).
+    Comparison of Edge Detection Algorithms for Automated Radiographic
+    Measurement of the Carrying Angle. Journal of Biomedical Engineering and Medical Imaging,
+    2(6). https://doi.org/10.14738/jbemi.26.1753.
+
+    :param img_to_log: The input image. Must be a gray scale image
+    :type img_to_log: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Laplacian of Gaussian==========')
     log_kernel = np.array([
         [0, 0, 1, 0, 0],

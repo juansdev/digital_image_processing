@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.global_th.two_peaks import two_peaks_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def two_peaks_thresholding_method(img_to_two_peaks: np.ndarray) -> np.ndarray:

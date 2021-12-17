@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 """
-digital_image_processing.apply_algorithms
+digital_image_processing.algorithms.main
 ~~~~~~~~~~~~~~~~~
 This module contains the application of algorithms on digital images.
 """
 
+import digital_image_processing
 import inspect
 import itertools
 import numpy as np
@@ -16,7 +17,7 @@ import shutil
 import cv2.cv2 as cv2
 from typing import Union, List
 from pathlib import Path
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 from PIL import Image
 from timeit import default_timer
 
@@ -31,11 +32,6 @@ class BaseApplyAlgorithms:
     :type path_input: str
     :param path_output: Path of the folder output
     :type path_output: str
-
-    Usage::
-
-        >>> base_apply_algorithms = BaseApplyAlgorithms('input', 'output')
-        >>> base_apply_algorithms.create_folders(['canny_operator'], False)
     """
 
     def __init__(self, path_input: str, path_output: str):
@@ -58,7 +54,7 @@ class BaseApplyAlgorithms:
         if not name_imgs:
             input(f'There are no images in the input folder, test images will be saved in the folder. '
                   f'Ctrl + Z and enter for cancel operation.')
-            path_test_img: str = 'test_imgs'
+            path_test_img: str = os.path.join(os.path.dirname(digital_image_processing.__file__), 'test_imgs')
             path_test_imgs: List[str] = [os.path.join(path_test_img, name_img)
                                          for name_img in os.listdir(path_test_img)]
             start = default_timer()
@@ -227,6 +223,7 @@ class ApplyAlgorithms(BaseApplyAlgorithms):
         name_imgs: List[str] = [name_img for name_img in os.listdir(self.path_input)
                                 if os.path.isfile(os.path.join(self.path_input, name_img))]
         for name_img in name_imgs:
+            log_message.info('========Reading image==========')
             log_message.info(f'Image to use the algorithms: {name_img}.')
             log_message.info('Use consensus images?: ' + ('Yes.' if self.__apply_consensus_ground else 'No.'))
             img_original: np.ndarray = self.read_img(os.path.join(self.path_input, name_img))

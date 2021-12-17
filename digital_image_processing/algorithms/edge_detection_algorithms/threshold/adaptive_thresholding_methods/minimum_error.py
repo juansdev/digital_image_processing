@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.global_th.min_err import min_err_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def minimum_err_thresholding_method(img_to_minimum_err: np.ndarray) -> np.ndarray:

@@ -1,7 +1,7 @@
 import numpy as np
 
 from pythreshold.local_th.bradley_roth import bradley_roth_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def bradley_thresholding_method(img_to_bradley: np.ndarray) -> np.ndarray:

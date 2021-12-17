@@ -1,7 +1,8 @@
 import argparse
+import os
 
-from utils import test_adaptive_thresholding_algorithms, test_edge_detection_algorithms
-from tools.logger_base import log as log_message
+from .utils import test_adaptive_thresholding_algorithms, test_edge_detection_algorithms
+from .tools.logger_base import log as log_message
 
 
 def test_algorithms_main():
@@ -26,11 +27,11 @@ def test_algorithms_main():
     args = ap.parse_args()
 
     if not args.input_dir:
-        log_message.warning('Input directory not established, the default path will be used \'\\input_test\'')
-        args.input_dir = 'input_test'
+        args.input_dir = os.path.join(os.getcwd(), 'input_test')
+        log_message.warning(f'Input directory not established, the default path will be used {args.input_dir!r}')
     if not args.output_dir:
-        log_message.warning('Output directory not established, the default path will be used \'\\output_test\'')
-        args.output_dir = 'output_test'
+        args.output_dir = os.path.join(os.getcwd(), 'output_test')
+        log_message.warning(f'Output directory not established, the default path will be used {args.output_dir!r}')
     if args.all_algorithms:
         log_message.info('Algorithms to use: All')
         test_edge_detection_algorithms(args.input_dir, args.output_dir, args.consensus_ground)

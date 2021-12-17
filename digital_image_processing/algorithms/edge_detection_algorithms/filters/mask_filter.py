@@ -1,8 +1,21 @@
 import numpy as np
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def mask_filter(img_to_filter: np.array, f: np.array) -> np.array:
+    """Runs the Mask Filter algorithm
+
+    Reference:
+
+    :param img_to_filter: The input image. Must be a gray scale image
+    :type img_to_filter: ndarray
+    :param f: Kernel
+    :type f: ndarray
+
+    :return: The estimated local filter for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('Applying mask filter.')
     img_h, img_w = img_to_filter.shape
     ret = np.array(img_to_filter, dtype='float')

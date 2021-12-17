@@ -1,7 +1,7 @@
 import logging as log
 
 log.basicConfig(
-    level='DEBUG',
+    level='INFO',
     format='%(asctime)s: %(levelname)s [%(filename)s:%(lineno)d] %(message)s',
     datefmt='%H:%M:%S',
     handlers=[

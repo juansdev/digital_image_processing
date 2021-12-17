@@ -1,16 +1,15 @@
 import numpy as np
 
 from pythreshold.global_th.entropy.johannsen import johannsen_threshold
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def johannsen_thresholding_method(img_to_feng: np.ndarray) -> np.ndarray:
     """ Runs the Johannsen's threshold algorithm.
 
     Reference:
-    Johannsen, G., and J. Bille ‘‘A Threshold Selection Method Using
-    Information Measures,’’ Proceedings of the Sixth International Conference
-    on Pattern Recognition, Munich, Germany (1982): 140–143.
+    Sahoo, Prasanna & Soltani, Sasan & Wong, Andrew. (1988). A Survey of Thresholding Techniques. Computer Vision,
+    Graphics, and Image Processing. 41. 233-260. 10.1016/0734-189X(88)90022-9.
 
     :param img_to_feng: The input image
     :type img_to_feng: ndarray

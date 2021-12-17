@@ -1,13 +1,26 @@
 import math
 import numpy as np
 
-from algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
+from digital_image_processing.algorithms.edge_detection_algorithms.threshold.threshold_based_edge_detection import (
     fbc_threshold,
 )
-from tools.logger_base import log as log_message
+from digital_image_processing.tools.logger_base import log as log_message
 
 
 def central_difference(img_to_central: np.ndarray) -> np.ndarray:
+    """Runs the Central Difference algorithm
+
+    Reference:
+    Bustacara-Medina, C., & Flórez-Valencia, L. (2016). Comparison and Evaluation of First Derivatives
+    Estimation. Computer Vision and Graphics, 121–133. https://doi.org/10.1007/978-3-319-46418-3_11
+
+    :param img_to_central: The input image. Must be a gray scale image
+    :type img_to_central: ndarray
+
+    :return: The estimated local operator for each pixel
+    :rtype: ndarray
+    """
+
     log_message.info('========Central Difference==========')
     img_h, img_w = img_to_central.shape
     ret = np.copy(img_to_central)
