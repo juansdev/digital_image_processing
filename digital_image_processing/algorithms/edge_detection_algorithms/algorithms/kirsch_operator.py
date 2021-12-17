@@ -64,6 +64,7 @@ def kirsch_operator(img_to_kirsch: np.ndarray) -> np.ndarray:
     # Apply lpk_threshold
     ret, binary = lpk_threshold(mask_kirsch)
     kirsch = binary
+    # FIXME, Generate imagen with extension .tif
     assert not np.logical_and(kirsch > 0, kirsch < 255).any(), 'Image kirsch operator isn\'t monochrome'
     return kirsch
 

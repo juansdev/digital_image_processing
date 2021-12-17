@@ -47,5 +47,5 @@ def test_algorithms_main():
                                 --edge-detection-algorithms | -ed
                                 --adaptive-thresholding | -at
                                 
-                                Ex: python main.py --all-algorithms
-                                Use for more help: python main.py --help''')
+                                Ex: digital_image_processing --all-algorithms
+                                Use for more help: digital_image_processing --help''')

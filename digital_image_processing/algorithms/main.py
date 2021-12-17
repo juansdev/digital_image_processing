@@ -5,6 +5,7 @@ digital_image_processing.algorithms.main
 ~~~~~~~~~~~~~~~~~
 This module contains the application of algorithms on digital images.
 """
+import PIL
 
 import digital_image_processing
 import inspect
@@ -285,10 +286,16 @@ class ApplyAlgorithms(BaseApplyAlgorithms):
             log_message.info('Joining the result of the algorithm applied to the image '
                              'together with the other results.')
             if 'path_img' in keys and 'algorithm_name' in keys:
-                img_with_algorithm = Image.open(kwargs['path_img']).convert('1')
-                image_result_dict.update({
-                    kwargs['algorithm_name']: np.asarray(img_with_algorithm)
-                })
+                try:
+                    img_with_algorithm = Image.open(kwargs['path_img']).convert('1')
+                except PIL.UnidentifiedImageError as ex:
+                    log_message.error(ex)
+                    log_message.error('The file was not generated correctly, in future updates this will be corrected, '
+                                      'please try to use .jpg, .jpeg or .png extensions.')
+                else:
+                    image_result_dict.update({
+                        kwargs['algorithm_name']: np.asarray(img_with_algorithm)
+                    })
             else:
                 raise Exception('Must define the path_img and the algorithm_name.')
         else:
